@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6645409029869393739}
   - component: {fileID: 7726757842819281352}
   - component: {fileID: 6241645527509141636}
+  - component: {fileID: -5645255074800537229}
   m_Layer: 0
   m_Name: Lettuce2
   m_TagString: Untagged
@@ -78,3 +79,16 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &-5645255074800537229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6235143632483477103}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f930b9ae1e01a42528f68f361d8dfe5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IngredientType: 2

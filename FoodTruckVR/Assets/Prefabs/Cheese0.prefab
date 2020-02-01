@@ -11,8 +11,9 @@ GameObject:
   - component: {fileID: 7344880469102329117}
   - component: {fileID: 5975582651903466398}
   - component: {fileID: 8019145237896307410}
+  - component: {fileID: -6820945037297270005}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: Cheese0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -78,3 +79,16 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &-6820945037297270005
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8021143533852478521}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f930b9ae1e01a42528f68f361d8dfe5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IngredientType: 1

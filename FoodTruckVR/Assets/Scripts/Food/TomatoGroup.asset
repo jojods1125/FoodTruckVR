@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 0}
+  m_Name: TomatoGroup
+  m_EditorClassIdentifier: Assembly-CSharp::IngredientGroup
+  CollectionType: 3
+  IngredientModels:
+  - {fileID: -3150372986552693798, guid: 26b98cd0d17b0294d9f63588058e3489, type: 3}
+  - {fileID: -8415583023453998491, guid: fe7c43b8e44bca64490a22a0f8b3b939, type: 3}
+  - {fileID: -3563804340212239540, guid: b1b8482f955b9e3419eaead3d9bcae65, type: 3}
+  - {fileID: 1624851351738606478, guid: 8ce8d78da0677014b9271bd1f2a74478, type: 3}
