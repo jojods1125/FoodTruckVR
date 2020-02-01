@@ -8,8 +8,8 @@ public class IngredientGroup : ScriptableObject
 	/** The type of the ingredients in this collection */
 	public IngredientType CollectionType;
 
-	[Header("Place smallest item at front of list, then continue with scale")]
-	/** List of models for this ingredient type, ordered by size (smallest at index 0) */
+	[Header("Place largest item at front of list, then continue with scale")]
+	/** List of models for this ingredient type, ordered by size (largest at index 0) */
 	[SerializeField]
 	private List<Ingredient> IngredientModels;
 
@@ -37,14 +37,25 @@ public class IngredientMeshContainer : ScriptableObject
 		get { return IngredientGroups; }
 	}
 
-	/** Return the mesh for an ingredient that is sized for the layer specified */
-	public Ingredient GetIngredientForLayer(IngredientType inType, int inSocket)
+	/** Return the ingredient that is sized for the layer specified */
+	public GameObject GetIngredientForLayer(IngredientType inType, int inSocket)
 	{
 		foreach (IngredientGroup group in IngredientGroups) 
 		{
 			if(group.CollectionType == inType)
 			{
-				return group.GetIngredientByIndex(inSocket);
+				//get the object to spawn
+				Ingredient ingredientToSpawn = group.GetIngredientByIndex(inSocket);
+
+				//If DNE, return null
+				if(ingredientToSpawn == null)
+				{
+					return null;
+				}
+
+				//Spawn the ingredient in world and return to caller
+				GameObject newIngredient = Instantiate(ingredientToSpawn.gameObject);
+				return newIngredient;
 			}
 		}
 
