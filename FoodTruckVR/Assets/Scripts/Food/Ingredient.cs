@@ -3,11 +3,14 @@
 /** All the different types of ingredients that can appear in the game */
 public enum IngredientType
 {
-	Beef,
-	Cheese,
-	Lettuce,
-	Tomato,
-	Bean,
+    None,
+    Cheese,
+    Lettuce,
+    Tomato,
+    Bean,
+    Beef,
+    Shell,
+    Chip,
 }
 
 /** Attached to in-game objects to identify what ingredient they are */
