@@ -12,8 +12,8 @@ public class Scoop : MonoBehaviour
         if (child.transform.position.y < gameObject.transform.position.y)
         {
             Debug.Log("Drop stuff");
-
         }
+        Debug.Log("Don't");
     }
 
 }
