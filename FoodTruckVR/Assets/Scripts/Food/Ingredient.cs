@@ -9,6 +9,8 @@ public enum IngredientType
     Bean,
     Beef,
     Shell,
+    Chip,
+    None,
 }
 
 /** Attached to in-game objects to identify what ingredient they are */
