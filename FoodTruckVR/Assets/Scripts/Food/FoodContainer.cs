@@ -21,4 +21,15 @@ public class FoodContainer : MonoBehaviour
 	/// All ingredients currently attached to this container
 	/// </summary>
 	public List<Ingredient> Ingredients;
+
+	/** Add a ingredient mesh to this container */
+	public bool addIngredient(Ingredient inIngredient)
+	{
+		//Get the container manager
+		ContainerManager containerManager = ContainerManager.SharedInstance;
+		
+		//TODO -- finish this
+
+		return false;
+	}
 }
