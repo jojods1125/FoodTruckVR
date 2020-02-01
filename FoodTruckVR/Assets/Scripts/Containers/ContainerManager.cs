@@ -9,4 +9,15 @@ public class ContainerManager : MonoBehaviour
 	/** Reference to the mesh container */
 	public IngredientMeshContainer IngredientMeshContainer { get; private set; }
 
+	public PickupIngredientContainer PickupIngredientContainer { get; private set; }
+
+	/** Initialize share instance */
+	void Awake()
+	{
+		if(SharedInstance == null)
+		{
+			SharedInstance = this;
+		}
+	}
+
 }
