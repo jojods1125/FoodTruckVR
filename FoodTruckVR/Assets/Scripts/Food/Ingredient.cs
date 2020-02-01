@@ -19,3 +19,5 @@ public class Ingredient : MonoBehaviour
 	/** This ingredient's type */
 	public IngredientType IngredientType;
 }
+
+

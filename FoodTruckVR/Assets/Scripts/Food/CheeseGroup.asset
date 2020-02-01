@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 0}
+  m_Name: CheeseGroup
+  m_EditorClassIdentifier: Assembly-CSharp::IngredientGroup
+  CollectionType: 1
+  IngredientModels:
+  - {fileID: -6820945037297270005, guid: e3c819af41ee89e43b70d8b5505121b2, type: 3}
+  - {fileID: 2967675323172722611, guid: e55af40ae2b12a74b835bc33b6428376, type: 3}
+  - {fileID: 1008919166199275434, guid: d480dcb85e75bca4d88311e3f4207823, type: 3}
+  - {fileID: 156759277816642029, guid: c08de11a4b563d548ae1c665a8d2a0b2, type: 3}
