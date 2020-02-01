@@ -7,6 +7,6 @@ public class ContainerManager : MonoBehaviour
 	public static ContainerManager SharedInstance;
 
 	/** Reference to the mesh container */
-	[SerializeField]
-	private IngredientMeshContainer _IngredientMeshContainer;
+	public IngredientMeshContainer IngredientMeshContainer { get; private set; }
+
 }
