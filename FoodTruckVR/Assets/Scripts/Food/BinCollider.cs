@@ -8,12 +8,13 @@ public class BinCollider : MonoBehaviour
     public GameObject ingredSpawn2;
     public GameObject ingredSpawn3;
 
-    public Ingredient IngredTemp;
+    public Ingredient IngredTempPref;
 
     void OnTriggerEnter (Collider refillCollide)
     {
         if (refillCollide.CompareTag("Refill"))
         {
+            //Debug.Log("refilled");
 
             //temp vars for ingreds
             Ingredient IngredInst1;
@@ -21,14 +22,17 @@ public class BinCollider : MonoBehaviour
             Ingredient IngredInst3;
 
             //create each ingredient
-            IngredInst1 = Instantiate(IngredTemp, ingredSpawn1.transform) as Ingredient;
+            IngredInst1 = Instantiate(IngredTempPref);
             IngredInst1.IngredientType = refillCollide.GetComponent<Refill>().IngredientType;
+            IngredInst1.transform.position = ingredSpawn1.transform.position;
 
-            IngredInst2 = Instantiate(IngredTemp, ingredSpawn2.transform) as Ingredient;
+            IngredInst2 = Instantiate(IngredTempPref);
             IngredInst2.IngredientType = refillCollide.GetComponent<Refill>().IngredientType;
+            IngredInst2.transform.position = ingredSpawn2.transform.position;
 
-            IngredInst3 = Instantiate(IngredTemp, ingredSpawn3.transform) as Ingredient;
+            IngredInst3 = Instantiate(IngredTempPref);
             IngredInst3.IngredientType = refillCollide.GetComponent<Refill>().IngredientType;
+            IngredInst3.transform.position = ingredSpawn3.transform.position;
 
             //kill refill
             Destroy(refillCollide.gameObject);
