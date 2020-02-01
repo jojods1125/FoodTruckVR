@@ -40,7 +40,7 @@ public class FoodContainer : MonoBehaviour
 		}
 
 		//Poll ingredient container for the material to add at this layer
-		Ingredient ingredientMesh = ingredientContainer.GetIngredientForLayer(inIngredient.IngredientType, freeSocket);
+		GameObject ingredientMesh = ingredientContainer.GetIngredientForLayer(inIngredient.IngredientType, freeSocket);
 
 		//if mesh not found, do not continue
 		if(ingredientMesh == null)
@@ -49,8 +49,8 @@ public class FoodContainer : MonoBehaviour
 		}
 
 		//attach the ingredient model to the socket
-		ingredientMesh.gameObject.transform.SetParent(socket);
-		ingredientMesh.gameObject.transform.localPosition = Vector3.zero;
+		ingredientMesh.transform.SetParent(socket);
+		ingredientMesh.transform.localPosition = Vector3.zero;
 
 		Ingredients.Add(inIngredient);
 
