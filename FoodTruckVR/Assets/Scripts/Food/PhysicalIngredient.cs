@@ -21,7 +21,11 @@ public class PhysicalIngredient : Ingredient
     {
         if (collision.gameObject.GetComponent<FoodContainer>() != null)
         {
-            collision.gameObject.GetComponent<FoodContainer>().AddIngredient(this);
+            Debug.Log("ADD CHEESE YOU FOOL");
+            if (collision.gameObject.GetComponent<FoodContainer>().AddIngredient(this))
+            {
+                Destroy(gameObject);
+            }
         } else
         {
             Debug.Log("Failure");

@@ -17,7 +17,7 @@ public class FoodContainer : MonoBehaviour
 	/// <summary>
 	/// All ingredients currently attached to this container
 	/// </summary>
-	private List<Ingredient> Ingredients;
+	private List<Ingredient> Ingredients = new List<Ingredient>();
 
 	/** Add a ingredient mesh to this container */
 	public bool AddIngredient(Ingredient inIngredient)
@@ -51,6 +51,8 @@ public class FoodContainer : MonoBehaviour
 		//attach the ingredient model to the socket
 		ingredientMesh.transform.SetParent(socket);
 		ingredientMesh.transform.localPosition = Vector3.zero;
+		ingredientMesh.transform.localRotation = Quaternion.identity;
+		ingredientMesh.transform.localScale = new Vector3(1, 1, 1);
 
 		Ingredients.Add(inIngredient);
 

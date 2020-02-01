@@ -3,7 +3,7 @@ using UnityEngine;
 
 /** Container for ingredients and how they can be represented in the world as grabbable objects */
 [CreateAssetMenu(menuName = "Container Asset/PickupIngredientContainer")]
-public class PickupIngredientContainer : MonoBehaviour
+public class PickupIngredientContainer : ScriptableObject
 {
     /** List of all ingredient groups in the game */
 	[SerializeField]

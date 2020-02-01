@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 0}
   m_Name: BeefGroup
   m_EditorClassIdentifier: Assembly-CSharp::IngredientGroup
-  CollectionType: 0
+  CollectionType: 5
   IngredientModels:
   - {fileID: 5028277010454729459, guid: 749a0783abbe4f1418e2e6b5444e433c, type: 3}
   - {fileID: -5390190026018291567, guid: cb23d0a86b1be9c45b7e625521cdb888, type: 3}

@@ -6,10 +6,21 @@ public class ContainerManager : MonoBehaviour
 	/** Reference that every other class can access */
 	public static ContainerManager SharedInstance;
 
-	/** Reference to the mesh container */
-	public IngredientMeshContainer IngredientMeshContainer { get; private set; }
+	[SerializeField]
+	private PickupIngredientContainer _PickupIngredientContainer;
+	public PickupIngredientContainer PickupIngredientContainer
+	{
+		get { return _PickupIngredientContainer; }
+	}
 
-	public PickupIngredientContainer PickupIngredientContainer { get; private set; }
+
+	[SerializeField]
+    private IngredientMeshContainer _IngredientMeshContainer;
+
+    public IngredientMeshContainer IngredientMeshContainer
+    {
+        get{ return _IngredientMeshContainer;}
+    }
 
 	/** Initialize share instance */
 	void Awake()
