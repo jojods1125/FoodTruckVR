@@ -6,29 +6,33 @@ public class PhysicalIngredient : Ingredient
 {
     public bool CanGrab = true;
 
+    private GameObject toDelete;
+
     private void Awake()
     {
         
     }
 
     // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
-        
+        if (toDelete != null)
+        {
+            Destroy(toDelete);
+        }
     }
 
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.GetComponent<FoodContainer>() != null)
         {
-            Debug.Log("ADD CHEESE YOU FOOL");
             if (collision.gameObject.GetComponent<FoodContainer>().AddIngredient(this))
             {
-                Destroy(gameObject);
+                toDelete = gameObject;
             }
         } else
         {
-            Debug.Log("Failure");
+            //Debug.Log("Failure to add");
         }
     }
 
