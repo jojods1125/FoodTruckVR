@@ -77,7 +77,7 @@ GameObject:
   - component: {fileID: 4810600462504526232}
   m_Layer: 0
   m_Name: Bowl
-  m_TagString: Untagged
+  m_TagString: ChipBowl
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -160,6 +160,7 @@ MonoBehaviour:
   Sockets:
   - {fileID: 1222289074301805398}
   - {fileID: 4645931566161273454}
+  Ingredients: 
   cont: 1
 --- !u!54 &856293209856547127
 Rigidbody:
