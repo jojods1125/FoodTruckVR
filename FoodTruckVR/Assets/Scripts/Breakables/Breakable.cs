@@ -11,34 +11,22 @@ public enum BreakType
 /** Attach to objects in game that have components that can break in some way */
 public class Breakable : MonoBehaviour
 {
-    /** Maps break points on the object and their chance to break */
-    public struct BreakPoint
-    {
-        /** Auto-generated ID */
-        [HideInInspector]
-        public int ID;
-
-        [Tooltip("The breakpoint transform on the object")] 
-        public Transform Socket;
-
-        [Tooltip("The break type that occurs at this spot")] 
-        public BreakType BreakType;
-
-        [Tooltip("The chance for the thing at this breakpoint to break/explode (higher weight = more likely)")]
-        public int Weight;
-    }
-
     [Tooltip("Name of this breakable object")]
     public string Name;
-
-    [Tooltip("List of all breakpoints on the object, paired with their probability to break")]
-    public List<BreakPoint> BreakPoints;
 
     [Tooltip("The chance for something on this thing to break/explode (higher weight = more likely)")]
     public int Weight;
 
+    [Tooltip("List of all breakpoints on the object, paired with their probability to break")]
+    public List<BreakPoint> BreakPoints;
+
     /** Total weight of the breakpoints attached to this object */
     private int _TotalWeight;
+
+    /** Tells if in its current state the object is broek */
+    private bool _IsBroken;
+
+
 
     /** Initialize the ID's of the breakpoints and add up weights */
     public void Initialize()
@@ -62,19 +50,9 @@ public class Breakable : MonoBehaviour
 
             if(randomWeight <= 0)
             {
-                Transform socket = breakPoint.Socket;
-
-                switch(breakPoint.BreakType)
-                {
-                    case BreakType.BreakOff:
-                        //detach child if child exists
-                        if(socket.childCount > 0)
-                        {
-                            socket.DetachChildren();
-                            return true;
-                        }
-                        break;
-                }
+                breakPoint.Break();
+                _IsBroken = breakPoint.IsBroken;
+                return true;
             }
         }
 
@@ -97,6 +75,7 @@ public class Breakable : MonoBehaviour
                         if(socket.childCount > 0)
                         {
                             socket.DetachChildren();
+                            _IsBroken = breakPoint.IsBroken = true;
                             return true;
                         }
                         break;
@@ -106,8 +85,4 @@ public class Breakable : MonoBehaviour
 
         return false;
     }
-
-
-
-
 }
