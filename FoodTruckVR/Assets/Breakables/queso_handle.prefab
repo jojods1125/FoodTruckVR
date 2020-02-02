@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 5486040046289418340}
   - component: {fileID: 7447505227716131274}
   - component: {fileID: 6308576882745113677}
+  - component: {fileID: 6619332697717334686}
   m_Layer: 0
   m_Name: queso_handle
   m_TagString: Untagged
@@ -126,5 +127,18 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.0005143261, y: 0.00062805315, z: 0.0013975478}
-  m_Center: {x: 0, y: -0.00069541245, z: 0.0013187899}
+  m_Size: {x: 0.0005143261, y: 0.000378849, z: 0.0014188425}
+  m_Center: {x: 0, y: -0.00070700346, z: 0.0013081429}
+--- !u!65 &6619332697717334686
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4405769452278994304}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.00035717688, y: 0.00025550392, z: 0.00032931202}
+  m_Center: {x: -0.00007857453, y: -0.000067021916, z: 0.00006704098}
