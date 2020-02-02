@@ -65,7 +65,6 @@ public class Cabinet : MonoBehaviour
     {
         if (Input.GetKeyDown("space"))
         {
-            Debug.Log("pressed space");
             StorageFill();
         }
     }
