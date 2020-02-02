@@ -24,10 +24,11 @@ public class Heater : MonoBehaviour
             //Debug.Log("Scooped");
             //other.GetComponent<MeshFilter>().mesh = ladle_full;
             MeshFilter filter = other.GetComponent<MeshFilter>();
-            MeshRenderer render = other.GetComponent<MeshRenderer>();
+            //MeshRenderer render = other.GetComponent<MeshRenderer>();
             if(filter.mesh != activeMesh2)
             {
                 filter.mesh = activeMesh2;
+                other.GetComponent<Scoop>().currentMesh = activeMesh2;
             }
             
         }

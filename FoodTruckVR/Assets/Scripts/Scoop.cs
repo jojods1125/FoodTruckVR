@@ -24,7 +24,8 @@ public class Scoop : MonoBehaviour
 
         if (child.transform.position.y < gameObject.transform.position.y && Scoopee != IngredientType.None)
         {
-            dropMe = Instantiate(IngredTemp, ingredSpawn1.transform) as Ingredient;
+            dropMe = Instantiate(IngredTemp, ingredSpawn1.transform.position, new Quaternion(0,0,0,0));
+            
             dropMe.IngredientType = Scoopee;
 
             Scoopee = IngredientType.None;
