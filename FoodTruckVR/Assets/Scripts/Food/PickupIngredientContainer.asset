@@ -12,4 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffd96c555c3f5c24799a3dee113aff27, type: 3}
   m_Name: PickupIngredientContainer
   m_EditorClassIdentifier: 
-  _PickupIngredients: []
+  _PickupIngredients:
+  - {fileID: 8744672787943372958, guid: 778a9615d793dda4ba516d47a88b9d3e, type: 3}
+  - {fileID: 5826920519736069024, guid: 01cfdbf4b729ee047a9597596ef8946e, type: 3}
+  - {fileID: 3789087359837438817, guid: 913dbe310ea8e5349a84f300fe7ae53a, type: 3}
