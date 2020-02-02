@@ -54,25 +54,33 @@ public class Storage : MonoBehaviour
 
     private void StorageFill()
     {
-            Refill tempRefillInst;
+        ContainerManager containerManager = ContainerManager.SharedInstance;
 
-            if (hasChe <= 0)
-            {
-                tempRefillInst = Instantiate(RefillTempPref);
-                tempRefillInst.IngredientType = IngredientType.Cheese;
-                tempRefillInst.transform.position = cheSpawn.transform.position;
-            }
-            if (hasLet <= 0)
-            {
-                tempRefillInst = Instantiate(RefillTempPref);
-                tempRefillInst.IngredientType = IngredientType.Lettuce;
-                tempRefillInst.transform.position = letSpawn.transform.position;
+        //get pickup container
+        PickupIngredientContainer refillContainer = containerManager.RefillContainer;
+
+        //Refill tempRefillInst;
+
+        if (hasChe <= 0)
+        {
+            refillContainer.GetIngredientModelByType(IngredientType.Cheese).transform.position = cheSpawn.transform.position;
+            //tempRefillInst = Instantiate(RefillTempPref);
+            //tempRefillInst.IngredientType = IngredientType.Cheese;
+            //tempRefillInst.transform.position = cheSpawn.transform.position;
         }
-            if (hasTom <= 0)
-            {
-                tempRefillInst = Instantiate(RefillTempPref);
-                tempRefillInst.IngredientType = IngredientType.Tomato;
-                tempRefillInst.transform.position = tomSpawn.transform.position;
+        if (hasLet <= 0)
+        {
+            refillContainer.GetIngredientModelByType(IngredientType.Lettuce).transform.position = letSpawn.transform.position;
+            //tempRefillInst = Instantiate(RefillTempPref);
+            //tempRefillInst.IngredientType = IngredientType.Lettuce;
+            //tempRefillInst.transform.position = letSpawn.transform.position;
+        }
+        if (hasTom <= 0)
+        {
+            refillContainer.GetIngredientModelByType(IngredientType.Tomato).transform.position = tomSpawn.transform.position;
+            //tempRefillInst = Instantiate(RefillTempPref);
+            //tempRefillInst.IngredientType = IngredientType.Tomato;
+            //tempRefillInst.transform.position = tomSpawn.transform.position;
         }
     }
 

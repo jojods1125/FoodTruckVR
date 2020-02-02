@@ -22,6 +22,15 @@ public class ContainerManager : MonoBehaviour
         get{ return _IngredientMeshContainer;}
     }
 
+
+	[SerializeField]
+	private PickupIngredientContainer _RefillContainer;
+
+	public PickupIngredientContainer RefillContainer
+	{
+		get { return _RefillContainer; }
+	}
+
 	/** Initialize share instance */
 	void Awake()
 	{

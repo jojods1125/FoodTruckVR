@@ -8,31 +8,41 @@ public class BinCollider : MonoBehaviour
     public GameObject ingredSpawn2;
     public GameObject ingredSpawn3;
 
-    public Ingredient IngredTempPref;
+    public PhysicalIngredient IngredTempPref;
 
     void OnTriggerEnter (Collider refillCollide)
     {
         if (refillCollide.CompareTag("Refill"))
         {
+            ContainerManager containerManager = ContainerManager.SharedInstance;
+
+            //get pickup container
+            PickupIngredientContainer pickupContainer = containerManager.PickupIngredientContainer;
+
             //Debug.Log("refilled");
 
             //temp vars for ingreds
-            Ingredient IngredInst1;
-            Ingredient IngredInst2;
-            Ingredient IngredInst3;
+            //PhysicalIngredient IngredInst1;
+            //PhysicalIngredient IngredInst2;
+            //PhysicalIngredient IngredInst3;
+
+            pickupContainer.GetIngredientModelByType(refillCollide.GetComponent<Refill>().IngredientType).transform.position = ingredSpawn1.transform.position;
+            pickupContainer.GetIngredientModelByType(refillCollide.GetComponent<Refill>().IngredientType).transform.position = ingredSpawn2.transform.position;
+            pickupContainer.GetIngredientModelByType(refillCollide.GetComponent<Refill>().IngredientType).transform.position = ingredSpawn3.transform.position;
 
             //create each ingredient
-            IngredInst1 = Instantiate(IngredTempPref);
-            IngredInst1.IngredientType = refillCollide.GetComponent<Refill>().IngredientType;
-            IngredInst1.transform.position = ingredSpawn1.transform.position;
+            //IngredInst1 = Instantiate(IngredTempPref);
+            //IngredInst1.IngredientType = refillCollide.GetComponent<Refill>().IngredientType;
+            //IngredInst1.transform.position = ingredSpawn1.transform.position;
 
-            IngredInst2 = Instantiate(IngredTempPref);
-            IngredInst2.IngredientType = refillCollide.GetComponent<Refill>().IngredientType;
-            IngredInst2.transform.position = ingredSpawn2.transform.position;
 
-            IngredInst3 = Instantiate(IngredTempPref);
-            IngredInst3.IngredientType = refillCollide.GetComponent<Refill>().IngredientType;
-            IngredInst3.transform.position = ingredSpawn3.transform.position;
+            //IngredInst2 = Instantiate(IngredTempPref);
+            //IngredInst2.IngredientType = refillCollide.GetComponent<Refill>().IngredientType;
+            //IngredInst2.transform.position = ingredSpawn2.transform.position;
+
+            //IngredInst3 = Instantiate(IngredTempPref);
+            //IngredInst3.IngredientType = refillCollide.GetComponent<Refill>().IngredientType;
+            //IngredInst3.transform.position = ingredSpawn3.transform.position;
 
             //kill refill
             Destroy(refillCollide.gameObject);
