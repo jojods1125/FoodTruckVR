@@ -66,7 +66,7 @@ MonoBehaviour:
   mat_beef: {fileID: 2100000, guid: d5c910bfccf98a042be89357c625eb49, type: 2}
   mat_cheese: {fileID: 2100000, guid: 9f6346018f1821b4f9353e054ff941ab, type: 2}
   mat_lettuce: {fileID: 2100000, guid: d0f8954c652afff4d96170628fd5568e, type: 2}
-  mat_tomato: {fileID: 2100000, guid: 1b8fa7bbd5976cc4fbd3d7bdb7acb4f3, type: 2}
+  mat_tomato: {fileID: 2100000, guid: e1c845f2c4264bb41849fd25064a375f, type: 2}
   mat_bowl: {fileID: 2100000, guid: 0ca57bb7cd33ee54abab3c1cf62c0ba9, type: 2}
   mat_chips: {fileID: 2100000, guid: b68fcf0c9fdd3204f88338ca6f64d851, type: 2}
   mat_queso: {fileID: 2100000, guid: 6500954edcfb63a49bd08b154236e44c, type: 2}

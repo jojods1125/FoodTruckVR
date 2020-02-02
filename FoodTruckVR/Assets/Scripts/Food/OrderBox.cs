@@ -41,10 +41,11 @@ public class OrderBox : MonoBehaviour
         Material[] materials = meshrender.materials;
 
 
-        //TEMP RESET
-        materials[1] = mat_none;
-        materials[7] = mat_none;
-        materials[10] = mat_none;
+        //Mat reset
+        for(int i = 1; i<=10; i++)
+        {
+            materials[i] = mat_none;
+        }
 
         resetVars();
 
@@ -62,12 +63,14 @@ public class OrderBox : MonoBehaviour
         {
             chipOrder = true;
             materials[7] = mat_chips;
+            
         }
 
         newRand(2);
         if (tempRand <= 1)
         {
             beanOrder = true;
+            materials[9] = mat_bowl;
             materials[10] = mat_beans;
         }
 
@@ -83,25 +86,40 @@ public class OrderBox : MonoBehaviour
             newRand(4);
             tacoTopingTotal = tempRand;
             if(tacoTopingTotal >= 4)
-                    tacoSlot4 = newToping(1, 3, 3, 3);
+                tacoSlot4 = newToping(1, 3, 3, 3);
+                materials[5] = topingMat(tacoSlot4);
             if (tacoTopingTotal >= 3)
                 tacoSlot3 = newToping(1, 3, 3, 3);
+                materials[4] = topingMat(tacoSlot3);
             if (tacoTopingTotal >= 2)
-                    tacoSlot2 = newToping(3, 3, 2, 2);
+                tacoSlot2 = newToping(3, 3, 2, 2);
+                materials[3] = topingMat(tacoSlot2);
             if (tacoTopingTotal >= 1)
-                    tacoSlot1 = newToping(7, 1, 1, 1);
+                tacoSlot1 = newToping(7, 1, 1, 1);
+                materials[2] = topingMat(tacoSlot1);
         }
 
         //Chip Order
         if (chipOrder)
         {
-            newRand(3);
-            if (tempRand == 3)
-                chipSlot = "None";
+            newRand(2);
+            //if (tempRand == 3)
+                //chipSlot = "Salsa";
             if (tempRand == 2)
+            {
                 chipSlot = "Queso";
+                materials[6] = mat_bowl;
+                materials[7] = mat_chips;
+                materials[8] = mat_queso;
+            }
+                
             if (tempRand == 1)
-                chipSlot = "Salsa";
+            {
+                chipSlot = "None";
+                materials[6] = mat_bowl;
+                materials[7] = mat_chips;
+                materials[8] = mat_chips;
+            }
         }
 
         //for mats
@@ -133,6 +151,28 @@ public class OrderBox : MonoBehaviour
             newToping = IngredientType.Tomato;
 
         return newToping;
+    }
+
+    public Material topingMat(IngredientType ingred)
+    {
+        Material tempMat = mat_none;
+        switch (ingred)
+        {
+            case IngredientType.Beef:
+                tempMat = mat_beef;
+                break;
+            case IngredientType.Cheese:
+                tempMat = mat_cheese;
+                break;
+            case IngredientType.Lettuce:
+                tempMat = mat_lettuce;
+                break;
+            case IngredientType.Tomato:
+                tempMat = mat_tomato;
+                break;
+        }
+
+        return tempMat;
     }
 
     public void resetVars()
