@@ -14,11 +14,6 @@ public class Storage : MonoBehaviour
 
     public Refill RefillTempPref;
 
-    public void StorageClose()
-    {
-        
-    }
-
     void OnTriggerEnter(Collider refillCollide)
     {
 
@@ -61,15 +56,11 @@ public class Storage : MonoBehaviour
     {
             Refill tempRefillInst;
 
-            Debug.Log("make something");
-            Debug.Log(hasChe.ToString() + hasLet.ToString() + hasTom.ToString());
-
             if (hasChe <= 0)
             {
                 tempRefillInst = Instantiate(RefillTempPref);
                 tempRefillInst.IngredientType = IngredientType.Cheese;
                 tempRefillInst.transform.position = cheSpawn.transform.position;
-                Debug.Log("make cheese");
             }
             if (hasLet <= 0)
             {
@@ -87,10 +78,9 @@ public class Storage : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown("space"))
-        {
-            Debug.Log("pressed space");
+       // if (Input.GetKeyDown("space"))
+        //{
             StorageFill();
-        }
+        //}
     }
 }
