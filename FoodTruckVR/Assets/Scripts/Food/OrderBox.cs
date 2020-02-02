@@ -35,6 +35,11 @@ public class OrderBox : MonoBehaviour
 
     public MeshRenderer meshrender;
 
+    private void Start()
+    {
+        NewOrder();
+    }
+
     public void NewOrder()
     {
 
