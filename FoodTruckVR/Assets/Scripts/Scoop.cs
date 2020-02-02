@@ -12,28 +12,31 @@ public class Scoop : MonoBehaviour
     public GameObject ingredSpawn1;
     public Ingredient IngredTemp;
 
+    //Mesh for switching
+    public Mesh activeMesh1;
+    public Mesh activeMesh2;
+    public Ingredient dropMe;
+    public Mesh currentMesh;
     //public MeshFilter mesh = ladle_full;
 
     public void Update()
     {
+
         if (child.transform.position.y < gameObject.transform.position.y && Scoopee != IngredientType.None)
         {
-            Ingredient dropped;
-            dropped = Instantiate(IngredTemp, ingredSpawn1.transform) as Ingredient;
-            dropped.IngredientType = Scoopee;
+            dropMe = Instantiate(IngredTemp, ingredSpawn1.transform) as Ingredient;
+            dropMe.IngredientType = Scoopee;
+
             Scoopee = IngredientType.None;
-            
-            Debug.Log("Dropped");
-            //Destroy(ingredSpawn1, .5f);
+
+            currentMesh = this.GetComponent<MeshFilter>().sharedMesh;
+            if (currentMesh != activeMesh1)
+            {
+                currentMesh = activeMesh1;
+                this.GetComponent<MeshFilter>().mesh = currentMesh;
+            }
+
+            //Debug.Log("Dropped");
         }
     }
-
-    public void fill()
-    {
-
-
-    }
-
-    
-
 }
