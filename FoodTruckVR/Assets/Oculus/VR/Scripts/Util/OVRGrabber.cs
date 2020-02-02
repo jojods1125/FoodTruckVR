@@ -82,7 +82,7 @@ public class OVRGrabber : MonoBehaviour
         get { return m_grabbedObj; }
     }
 
-	public void ForceRelease(OVRGrabbable grabbable)
+	public void ForceRelease(OVRGrabbable grabbable, bool canGet = true)
     {
         bool canRelease = (
             (m_grabbedObj != null) &&
@@ -90,7 +90,12 @@ public class OVRGrabber : MonoBehaviour
         );
         if (canRelease)
         {
+            if(canGet == false)
+            {
+                SetPlayerIgnoreCollision(grabbable.gameObject, true);
+            }
             GrabEnd();
+            
         }
     }
 
@@ -113,6 +118,7 @@ public class OVRGrabber : MonoBehaviour
 
     protected virtual void Start()
     {
+        m_grabbedObj = null;
         m_lastPos = transform.position;
         m_lastRot = transform.rotation;
         if(m_parentTransform == null)
@@ -128,6 +134,12 @@ public class OVRGrabber : MonoBehaviour
                 m_parentTransform.rotation = Quaternion.identity;
             }
         }
+    }
+
+    public void Respawn()
+    {
+        Awake();
+        Start();
     }
 
     virtual public void Update()
@@ -187,6 +199,13 @@ public class OVRGrabber : MonoBehaviour
 
     void OnTriggerEnter(Collider otherCollider)
     {
+        if(otherCollider.gameObject.tag.Equals("Sink"))
+        {
+            Debug.Log("SINK SINK SINK");
+            Respawn();
+            return;
+        }
+
         // Get the grab trigger
 		OVRGrabbable grabbable = otherCollider.GetComponent<OVRGrabbable>() ?? otherCollider.GetComponentInParent<OVRGrabbable>();
         if (grabbable == null) return;
@@ -250,6 +269,10 @@ public class OVRGrabber : MonoBehaviour
             for (int j = 0; j < grabbable.grabPoints.Length; ++j)
             {
                 Collider grabbableCollider = grabbable.grabPoints[j];
+                if(grabbableCollider == null)
+                {
+                    continue;
+                }
                 // Store the closest grabbable
                 Vector3 closestPointOnBounds = grabbableCollider.ClosestPointOnBounds(m_gripTransform.position);
                 float grabbableMagSq = (m_gripTransform.position - closestPointOnBounds).sqrMagnitude;
