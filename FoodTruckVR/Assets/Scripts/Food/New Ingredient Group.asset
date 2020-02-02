@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
-  m_Name: CheeseGroup
-  m_EditorClassIdentifier: Assembly-CSharp::IngredientGroup
+  m_Script: {fileID: 11500000, guid: a9f2e2a4de743b64a9d0bc7e11b2bb00, type: 3}
+  m_Name: New Ingredient Group
+  m_EditorClassIdentifier: 
   CollectionType: 1
   IngredientModels:
   - {fileID: -6820945037297270005, guid: e3c819af41ee89e43b70d8b5505121b2, type: 3}
