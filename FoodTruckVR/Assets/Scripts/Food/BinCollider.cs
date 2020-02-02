@@ -10,6 +10,17 @@ public class BinCollider : MonoBehaviour
 
     public PhysicalIngredient IngredTempPref;
 
+    private GameObject toDelete;
+
+    // Update is called once per frame
+    void LateUpdate()
+    {
+        if (toDelete != null)
+        {
+            Destroy(toDelete);
+        }
+    }
+
     void OnTriggerEnter (Collider refillCollide)
     {
         if (refillCollide.CompareTag("Refill"))
@@ -45,7 +56,7 @@ public class BinCollider : MonoBehaviour
             //IngredInst3.transform.position = ingredSpawn3.transform.position;
 
             //kill refill
-            Destroy(refillCollide.gameObject);
+            toDelete = refillCollide.gameObject;
 
         }
     }

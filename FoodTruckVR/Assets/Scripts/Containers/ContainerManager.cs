@@ -22,6 +22,14 @@ public class ContainerManager : MonoBehaviour
         get{ return _IngredientMeshContainer;}
     }
 
+	[SerializeField]
+	private IngredientMeshContainer _BowlMeshContainer;
+
+	public IngredientMeshContainer BowlMeshContainer
+	{
+		get { return _BowlMeshContainer; }
+	}
+
 
 	[SerializeField]
 	private PickupIngredientContainer _RefillContainer;
@@ -29,6 +37,14 @@ public class ContainerManager : MonoBehaviour
 	public PickupIngredientContainer RefillContainer
 	{
 		get { return _RefillContainer; }
+	}
+
+	[SerializeField]
+	private PickupIngredientContainer _InfiniteContainer;
+
+	public PickupIngredientContainer InfiniteContainer
+	{
+		get { return _InfiniteContainer; }
 	}
 
 	/** Initialize share instance */

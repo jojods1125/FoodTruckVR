@@ -9,7 +9,7 @@ public enum FoodContainerType
 }
 
 /** Attached to a food container in game so it can track what ingredients it currently holds */
-public class FoodContainer : MonoBehaviour
+public class FoodContainer : Ingredient
 {
 	[Tooltip("List of 'sockets' for attaching an ingredient model to the container. Starts at front of list and continues (socket at index 0 used first)")]
 	public List<Transform> Sockets;
@@ -19,14 +19,32 @@ public class FoodContainer : MonoBehaviour
 	/// </summary>
 	private List<Ingredient> Ingredients = new List<Ingredient>();
 
+	public FoodContainerType cont;
+
+	private void Update()
+	{
+		if (gameObject.GetComponent<OVRGrabbable>().isGrabbed && cont == FoodContainerType.Taco)
+		{
+			gameObject.transform.localScale = new Vector3(25, 25, 25);
+		}
+	}
+
 	/** Add a ingredient mesh to this container */
 	public bool AddIngredient(Ingredient inIngredient)
 	{
 		//Get the container manager
 		ContainerManager containerManager = ContainerManager.SharedInstance;
 
+
+		IngredientMeshContainer ingredientContainer;
 		//Get the manager's ingredient container
-		IngredientMeshContainer ingredientContainer = containerManager.IngredientMeshContainer;
+		if (cont == FoodContainerType.Taco)
+		{
+			ingredientContainer = containerManager.IngredientMeshContainer;
+		} else
+		{
+			ingredientContainer = containerManager.BowlMeshContainer;
+		}
 
 		//get free socket index in sockets list
 		Transform socket;

@@ -11,6 +11,7 @@ public enum IngredientType
     Beef,
     Shell,
     Chip,
+    Queso,
 }
 
 /** Attached to in-game objects to identify what ingredient they are */

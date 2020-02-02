@@ -128,11 +128,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 544bfe5f2f44141fc814331accb330c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IngredientType: 6
   Sockets:
   - {fileID: 5037156170611900787}
   - {fileID: 3783580780279564342}
   - {fileID: 5537539550003727885}
   - {fileID: 677978727226959397}
+  cont: 0
 --- !u!54 &3394622311776369546
 Rigidbody:
   m_ObjectHideFlags: 0
