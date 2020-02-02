@@ -11,6 +11,9 @@ public class Scoop : MonoBehaviour
 
     public GameObject ingredSpawn1;
     public Ingredient IngredTemp;
+
+    //public MeshFilter mesh = ladle_full;
+
     public void Update()
     {
         if (child.transform.position.y < gameObject.transform.position.y && Scoopee != IngredientType.None)
@@ -24,5 +27,13 @@ public class Scoop : MonoBehaviour
             //Destroy(ingredSpawn1, .5f);
         }
     }
+
+    public void fill()
+    {
+
+
+    }
+
+    
 
 }
