@@ -7,7 +7,7 @@ public class OrderBox : MonoBehaviour
     int tempRand;
     public bool tacoOrder = false;
     public bool chipOrder = false;
-    public bool beanOrder = false;
+    //public bool beanOrder = false;
 
     public int tacoTopingTotal = 0;
     public IngredientType tacoSlot1 = IngredientType.None;
@@ -29,7 +29,7 @@ public class OrderBox : MonoBehaviour
     public Material mat_queso;
     public Material mat_salsa;
 
-    public Material mat_beans;
+    //public Material mat_beans;
 
     public Material mat_none;
 
@@ -37,15 +37,13 @@ public class OrderBox : MonoBehaviour
 
     public void NewOrder()
     {
-        //for mats
-        Material[] materials = meshrender.materials;
-
 
         //Mat reset
-        for(int i = 1; i<=10; i++)
-        {
-            materials[i] = mat_none;
-        }
+        resetTacoMats();
+        resetChipMats();
+
+        //for mats
+        Material[] materials = meshrender.materials;
 
         resetVars();
 
@@ -62,19 +60,20 @@ public class OrderBox : MonoBehaviour
         if (tempRand <= 1)
         {
             chipOrder = true;
+            materials[6] = mat_bowl;
             materials[7] = mat_chips;
-            
+
         }
 
-        newRand(2);
+        /*newRand(2);
         if (tempRand <= 1)
         {
             beanOrder = true;
             materials[9] = mat_bowl;
             materials[10] = mat_beans;
-        }
+        }*/
 
-        if(!tacoOrder && !chipOrder && !beanOrder)
+        if (!tacoOrder && !chipOrder)
         {
             tacoOrder = true;
             materials[1] = mat_shell;
@@ -108,16 +107,12 @@ public class OrderBox : MonoBehaviour
             if (tempRand == 2)
             {
                 chipSlot = "Queso";
-                materials[6] = mat_bowl;
-                materials[7] = mat_chips;
                 materials[8] = mat_queso;
             }
                 
             if (tempRand == 1)
             {
                 chipSlot = "None";
-                materials[6] = mat_bowl;
-                materials[7] = mat_chips;
                 materials[8] = mat_chips;
             }
         }
@@ -125,6 +120,38 @@ public class OrderBox : MonoBehaviour
         //for mats
         meshrender.materials = materials;
     }
+
+    public void resetTacoMats()
+    {
+        //for mats
+        Material[] materials = meshrender.materials;
+
+        //Mat reset
+        for (int i = 1; i <= 5; i++)
+        {
+            materials[i] = mat_none;
+        }
+
+        //for mats
+        meshrender.materials = materials;
+    }
+
+    public void resetChipMats()
+    {
+        //for mats
+        Material[] materials = meshrender.materials;
+
+        //Mat reset
+        for (int i = 6; i <= 10; i++)
+        {
+            materials[i] = mat_none;
+        }
+
+        //for mats
+        meshrender.materials = materials;
+    }
+
+
 
     public void newRand(int max)
     {
@@ -179,7 +206,7 @@ public class OrderBox : MonoBehaviour
     {
         tacoOrder = false;
         chipOrder = false;
-        beanOrder = false;
+        //beanOrder = false;
 
         tacoTopingTotal = 0;
         tacoSlot1 = IngredientType.None;
