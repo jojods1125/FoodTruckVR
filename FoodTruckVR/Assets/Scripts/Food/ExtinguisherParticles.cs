@@ -6,19 +6,26 @@ public class ExtinguisherParticles : MonoBehaviour
 {
     public ParticleSystem Extinguisher;
     public Rigidbody FireExt;
+    public GameObject collider;
     // Start is called before the first frame update
     void Start()
     {
-        Extinguisher = GetComponent<ParticleSystem>();
-        FireExt = GetComponent<Rigidbody>();
-        Extinguisher.Stop();
+        Extinguisher.Stop(true);
+        collider.SetActive(false);
+
     }
 
     // Update is called once per frame
     void Update()
     {
         if (FireExt.GetComponent<OVRGrabbable>().isGrabbed) {
-            Extinguisher.Play();
+            Extinguisher.Play(true);
+            collider.SetActive(true);
         }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        other.GetComponent<MeshCollider>().GetComponentInChildren<ParticleSystem>().Stop(true);
     }
 }
