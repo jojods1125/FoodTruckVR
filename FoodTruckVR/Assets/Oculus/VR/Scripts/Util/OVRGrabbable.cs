@@ -17,11 +17,22 @@ permissions and limitations under the License.
 using System;
 using UnityEngine;
 
+/** Type of grabbable object */
+public enum GrabbableType
+{
+    //no special behavior
+    None,
+    // Apply transform no rotation
+    Lever,
+}
+
 /// <summary>
 /// An object that can be grabbed and thrown by OVRGrabber.
 /// </summary>
 public class OVRGrabbable : MonoBehaviour
 {
+    public GrabbableType GrabbableType;
+
     [SerializeField]
     protected bool m_allowOffhandGrab = true;
     [SerializeField]
