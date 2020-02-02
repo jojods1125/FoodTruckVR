@@ -29,4 +29,20 @@ public class PickupIngredientContainer : ScriptableObject
 
 		return null;
 	}
+
+	/** Return the ingredient that is sized for the layer specified */
+	public GameObject GetContainerModelByType(FoodContainerType inType)
+	{
+		foreach (FoodContainer ingredient in _PickupIngredients)
+		{
+			if (ingredient.cont == inType)
+			{
+				//Spawn the ingredient in world and return to caller
+				GameObject newIngredient = Instantiate(ingredient.gameObject);
+				return newIngredient;
+			}
+		}
+
+		return null;
+	}
 }

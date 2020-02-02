@@ -5,7 +5,8 @@ using UnityEngine;
 public enum FoodContainerType
 {
 	Taco,
-	Bowl
+	Bowl,
+	Ladle
 }
 
 /** Attached to a food container in game so it can track what ingredients it currently holds */

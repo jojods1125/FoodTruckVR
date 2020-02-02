@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class Scoop : MonoBehaviour
+public class Scoop : FoodContainer
 {
     public GameObject child;
     // Update is called once per frame
