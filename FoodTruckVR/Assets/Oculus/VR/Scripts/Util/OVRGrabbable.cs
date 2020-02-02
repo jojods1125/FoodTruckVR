@@ -17,11 +17,22 @@ permissions and limitations under the License.
 using System;
 using UnityEngine;
 
+/** Type of grabbable object */
+public enum GrabbableType
+{
+    //no special behavior
+    None,
+    // Apply transform no rotation
+    Lever,
+}
+
 /// <summary>
 /// An object that can be grabbed and thrown by OVRGrabber.
 /// </summary>
 public class OVRGrabbable : MonoBehaviour
 {
+    public GrabbableType GrabbableType;
+
     [SerializeField]
     protected bool m_allowOffhandGrab = true;
     [SerializeField]
@@ -109,6 +120,12 @@ public class OVRGrabbable : MonoBehaviour
         get { return m_grabPoints; }
     }
 
+    /** This gam jam ends in 5 hours NO TIME TO EXPLAIN */
+    public void SetNewKinematic(bool inNewKinematic)
+    {
+        m_grabbedKinematic = inNewKinematic;
+    }
+
 	/// <summary>
 	/// Notifies the object that it has been grabbed.
 	/// </summary>
@@ -116,6 +133,7 @@ public class OVRGrabbable : MonoBehaviour
     {
         m_grabbedBy = hand;
         m_grabbedCollider = grabPoint;
+        m_grabbedKinematic = GetComponent<Rigidbody>().isKinematic;
         gameObject.GetComponent<Rigidbody>().isKinematic = true;
     }
 

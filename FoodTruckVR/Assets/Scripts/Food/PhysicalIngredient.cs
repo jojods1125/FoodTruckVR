@@ -10,7 +10,7 @@ public class PhysicalIngredient : Ingredient
 
     private void Awake()
     {
-        
+
     }
 
     // Update is called once per frame
