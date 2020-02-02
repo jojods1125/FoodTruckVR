@@ -120,6 +120,12 @@ public class OVRGrabbable : MonoBehaviour
         get { return m_grabPoints; }
     }
 
+    /** This gam jam ends in 5 hours NO TIME TO EXPLAIN */
+    public void SetNewKinematic(bool inNewKinematic)
+    {
+        m_grabbedKinematic = inNewKinematic;
+    }
+
 	/// <summary>
 	/// Notifies the object that it has been grabbed.
 	/// </summary>
@@ -127,6 +133,7 @@ public class OVRGrabbable : MonoBehaviour
     {
         m_grabbedBy = hand;
         m_grabbedCollider = grabPoint;
+        m_grabbedKinematic = GetComponent<Rigidbody>().isKinematic;
         gameObject.GetComponent<Rigidbody>().isKinematic = true;
     }
 

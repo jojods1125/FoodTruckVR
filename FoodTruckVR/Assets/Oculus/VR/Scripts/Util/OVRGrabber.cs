@@ -329,25 +329,22 @@ public class OVRGrabber : MonoBehaviour
             return;
         }
 
+        switch(m_grabbedObj.GrabbableType)
+        {
+            case GrabbableType.Lever:
+                MoveGrabbedObjectLever(pos, rot, forceTeleport);
+                break;
+            case GrabbableType.None:
+                MoveGrabbedObjectNone(pos, rot, forceTeleport);   
+                break;
+        }
+    }
+
+    private void MoveGrabbedObjectNone(Vector3 pos, Quaternion rot, bool forceTeleport)
+    {
         Rigidbody grabbedRigidbody = m_grabbedObj.grabbedRigidbody;
         Vector3 grabbablePosition = pos + rot * m_grabbedObjectPosOff;
         Quaternion grabbableRotation = rot * m_grabbedObjectRotOff;
-
-        if(m_grabbedObj.GrabbableType == GrabbableType.Lever)
-        {
-            //get angle between lever's up vector and the vector formed from hand position and the lever's base (pivot)
-            GameObject grabbedObj = m_grabbedObj.gameObject;
-            Vector3 BaseToHand = pos - grabbedObj.transform.position;
-            Vector3 upVector = new Vector3(0,1,0);
-            float angle = Vector3.SignedAngle(upVector, BaseToHand, Vector3.right);
-
-            angle = Mathf.Clamp(angle, 0, 150);
-
-            //set angle of grabbed object
-            grabbedObj.transform.parent.localRotation = Quaternion.Euler(angle, 0f, 0f);
-
-            return;
-        }
 
         if (forceTeleport)
         {
@@ -361,6 +358,30 @@ public class OVRGrabber : MonoBehaviour
         }
     }
 
+    private void MoveGrabbedObjectLever(Vector3 pos, Quaternion rot, bool forceTeleport)
+    {
+        //make sure lever is attached to something
+        //if no parent, do not treat as lever. Treat as normal grabbable
+        if(m_grabbedObj.gameObject.transform.parent == null)
+        {
+            MoveGrabbedObjectNone(pos, rot, forceTeleport);
+            return;
+        }
+
+        //get angle between lever's up vector and the vector formed from hand position and the lever's base (pivot)
+        GameObject grabbedObj = m_grabbedObj.gameObject;
+        Vector3 BaseToHand = pos - grabbedObj.transform.position;
+        Vector3 upVector = new Vector3(0,1,0);
+        float angle = Vector3.SignedAngle(upVector, BaseToHand, Vector3.right);
+
+        angle = Mathf.Clamp(angle, 20, 130);
+
+        //set angle of grabbed object
+        grabbedObj.transform.parent.localRotation = Quaternion.Euler(angle, 0f, 0f);
+
+        return;
+    }
+
     protected void GrabEnd()
     {
         if (m_grabbedObj != null)
@@ -372,6 +393,12 @@ public class OVRGrabber : MonoBehaviour
 			OVRPose trackingSpace = transform.ToOVRPose() * localPose.Inverse();
 			Vector3 linearVelocity = trackingSpace.orientation * OVRInput.GetLocalControllerVelocity(m_controller);
 			Vector3 angularVelocity = trackingSpace.orientation * OVRInput.GetLocalControllerAngularVelocity(m_controller);
+
+            if(m_grabbedObj.GrabbableType == GrabbableType.Lever)
+            {
+                linearVelocity = Vector3.zero;
+                angularVelocity = Vector3.zero;
+            }
 
             GrabbableRelease(linearVelocity, angularVelocity);
         }

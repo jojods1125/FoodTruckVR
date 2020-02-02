@@ -21,12 +21,15 @@ public class Breakable : MonoBehaviour
     public List<BreakPoint> BreakPoints;
 
     /** Total weight of the breakpoints attached to this object */
-    private int _TotalWeight;
+    private int _TotalWeight = 0;
 
     /** Tells if in its current state the object is broek */
     private bool _IsBroken;
 
-
+    public bool IsBroken
+    {
+        get { return _IsBroken; }
+    }
 
     /** Initialize the ID's of the breakpoints and add up weights */
     public void Initialize()
@@ -39,19 +42,26 @@ public class Breakable : MonoBehaviour
         }
     }
 
+    public bool ContainsBreakPoint(BreakPoint inBreakPoint)
+    {
+        return BreakPoints.Contains(inBreakPoint);   
+    }
+
     /** Choose something at random to break on this object */
     public bool BreakSomethingAtRandom()
     {
+        Debug.Log($"Break something at random called on {Name}");
+
         int randomWeight = Random.Range(0, _TotalWeight) + 1;
 
         foreach(BreakPoint breakPoint in BreakPoints)
         {
             randomWeight -= breakPoint.Weight;
 
-            if(randomWeight <= 0)
+            if(randomWeight <= 0 && breakPoint.IsBroken == false)
             {
                 breakPoint.Break();
-                _IsBroken = breakPoint.IsBroken;
+                _IsBroken = (_IsBroken || breakPoint.IsBroken);
                 return true;
             }
         }
@@ -84,5 +94,18 @@ public class Breakable : MonoBehaviour
         }
 
         return false;
+    }
+
+    /** Check all break points. If all are repaired (not broken), this object is repaired */
+    public void CheckIfRepaired()
+    {
+        bool stillBroken = false;
+
+        foreach(BreakPoint breakPoint in BreakPoints)
+        {
+            stillBroken = !stillBroken && breakPoint.IsBroken;
+        }
+
+        _IsBroken = stillBroken;
     }
 }

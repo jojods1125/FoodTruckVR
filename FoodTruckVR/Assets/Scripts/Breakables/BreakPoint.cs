@@ -21,7 +21,7 @@ public class BreakPoint : MonoBehaviour
     public int Weight;
 
     /** Check if it belongs to the part that repairs this object. If so, attach back to this breakpoint */
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider collision)
     {
         //Not broken? Don't care at all
         if(IsBroken == false)
@@ -37,23 +37,35 @@ public class BreakPoint : MonoBehaviour
             return;
         }
 
+        Debug.Log("collision on breakpoint called with a repair part");
+
+
         //check if this repair part is meant to fix this breakpoint
         if(ReferenceEquals(repairPart.BreakPoint, this) == true)
         {
-            Debug.Log("Repair");
-            Repair(repairPart);
+            Debug.Log("Repair with valid part");
+            Repair(collision);
         }
     }
 
     /** Break it */
     public void Break()
     {
+        Debug.Log("break on breakpoint called");
         switch(BreakType)
         {
             //detach child if child exists
             case BreakType.BreakOff:
                 if(Socket.childCount > 0)
                 {
+                    Transform brokenPart = Socket.GetChild(0);
+
+                    //get the rigidbody part + set its values so that it obeys normal physics
+                    Rigidbody rigidBody = brokenPart.GetComponentInParent<Rigidbody>();
+
+                    rigidBody.isKinematic = false;
+                    rigidBody.useGravity = true;
+
                     Socket.DetachChildren();
                     IsBroken = true;
                 }
@@ -61,14 +73,27 @@ public class BreakPoint : MonoBehaviour
         }
     }
 
-    /** Repair based on the style of break we have here */
-    private void Repair(RepairPart inRepairPart)
+    /** Repair based on the style of break used */
+    private void Repair(Collider inCollision)
     {
         switch(BreakType)
         {
-            case BreakType.BreakOff: //attach the repair part back on
-                //TODO -- fix
-            break;
+            //attach the repair part back on
+            case BreakType.BreakOff:
+                //now that we know type, get a replace part repair part
+                RepairPartReplace repairPart = inCollision.gameObject.GetComponent<RepairPartReplace>();
+                Transform partTransform = repairPart.gameObject.transform;
+                partTransform.parent = Socket;
+                partTransform.localPosition = Vector3.zero;
+                Rigidbody rigidBody = repairPart.GetComponentInParent<Rigidbody>();
+                rigidBody.isKinematic = true;
+                rigidBody.useGravity = false;
+                //let repair part take care of extra steps
+                repairPart.Repair(); 
+                break;
         }
+
+        IsBroken = false;
+        BreakableManager.SharedInstance.NotifyBreakableOfRepair(this);
     }
 }
