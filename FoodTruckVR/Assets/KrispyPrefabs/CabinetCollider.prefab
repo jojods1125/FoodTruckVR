@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7763724889685733596}
   - component: {fileID: 6658789618578599480}
   m_Layer: 0
-  m_Name: CabinetCollider 1
+  m_Name: CabinetCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 7763724889685733587}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.056, y: -0.282, z: -0.8844295}
-  m_LocalScale: {x: 1.0622, y: 0.8807089, z: 0.5}
+  m_LocalScale: {x: 1.0622, y: 0.85360503, z: 0.5}
   m_Children:
   - {fileID: 7763724890012492001}
   - {fileID: 7763724890616434739}

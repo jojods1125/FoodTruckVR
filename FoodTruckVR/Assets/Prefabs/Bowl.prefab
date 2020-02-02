@@ -74,10 +74,10 @@ GameObject:
   - component: {fileID: 856293209856547126}
   - component: {fileID: 856293209856547127}
   - component: {fileID: 856293209856547120}
-  - component: {fileID: 856293209856547121}
+  - component: {fileID: 4810600462504526232}
   m_Layer: 0
   m_Name: Bowl
-  m_TagString: Untagged
+  m_TagString: ChipBowl
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -160,6 +160,7 @@ MonoBehaviour:
   Sockets:
   - {fileID: 1222289074301805398}
   - {fileID: 4645931566161273454}
+  Ingredients: 
   cont: 1
 --- !u!54 &856293209856547127
 Rigidbody:
@@ -189,13 +190,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02d61468f8b77ae4b92c344bc9a600fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  GrabbableType: 0
   m_allowOffhandGrab: 1
   m_snapPosition: 0
   m_snapOrientation: 0
   m_snapOffset: {fileID: 0}
   m_grabPoints: []
---- !u!64 &856293209856547121
-MeshCollider:
+--- !u!65 &4810600462504526232
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -204,7 +206,6 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
-  m_Mesh: {fileID: 623799534820081940, guid: b84f6bee1a529964a8becb7f0468645c, type: 3}
+  serializedVersion: 2
+  m_Size: {x: 0.004392463, y: 0.004392461, z: 0.000964819}
+  m_Center: {x: 0.000037221354, y: -0.000014434915, z: 0.00039870778}

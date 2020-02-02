@@ -47,6 +47,14 @@ public class ContainerManager : MonoBehaviour
 		get { return _InfiniteContainer; }
 	}
 
+	[SerializeField]
+	private PickupIngredientContainer _ContainerContainer;
+
+	public PickupIngredientContainer ContainerContainer
+	{
+		get { return _ContainerContainer; }
+	}
+
 	/** Initialize share instance */
 	void Awake()
 	{

@@ -5,7 +5,8 @@ using UnityEngine;
 public enum FoodContainerType
 {
 	Taco,
-	Bowl
+	Bowl,
+	Ladle
 }
 
 /** Attached to a food container in game so it can track what ingredients it currently holds */
@@ -17,7 +18,8 @@ public class FoodContainer : Ingredient
 	/// <summary>
 	/// All ingredients currently attached to this container
 	/// </summary>
-	private List<Ingredient> Ingredients = new List<Ingredient>();
+    //[HideInInspector]
+	public List<IngredientType> Ingredients = new List<IngredientType>();
 
 	public FoodContainerType cont;
 
@@ -72,7 +74,7 @@ public class FoodContainer : Ingredient
 		ingredientMesh.transform.localRotation = Quaternion.identity;
 		ingredientMesh.transform.localScale = new Vector3(1, 1, 1);
 
-		Ingredients.Add(inIngredient);
+		Ingredients.Add(inIngredient.IngredientType);
 
 		return true;
 	}
