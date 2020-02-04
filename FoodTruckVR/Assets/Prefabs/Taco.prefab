@@ -65,7 +65,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 670224309865224971, guid: f315d8ef98de7694f892cfc742059b2e, type: 3}
+  - {fileID: 2100000, guid: b3c1d19c951a94144b8d3a6dca09cf1e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -111,6 +111,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02d61468f8b77ae4b92c344bc9a600fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  GrabbableType: 0
   m_allowOffhandGrab: 1
   m_snapPosition: 0
   m_snapOrientation: 0
@@ -134,6 +135,7 @@ MonoBehaviour:
   - {fileID: 3783580780279564342}
   - {fileID: 5537539550003727885}
   - {fileID: 677978727226959397}
+  Ingredients: 
   cont: 0
 --- !u!54 &3394622311776369546
 Rigidbody:
