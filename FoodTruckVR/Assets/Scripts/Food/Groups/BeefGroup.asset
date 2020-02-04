@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9f2e2a4de743b64a9d0bc7e11b2bb00, type: 3}
+  m_Name: BeefGroup
+  m_EditorClassIdentifier: 
+  CollectionType: 5
+  IngredientModels:
+  - {fileID: 5028277010454729459, guid: 749a0783abbe4f1418e2e6b5444e433c, type: 3}
+  - {fileID: -5390190026018291567, guid: cb23d0a86b1be9c45b7e625521cdb888, type: 3}
+  - {fileID: 7561482042067193076, guid: 4f8dfc74fc0ec124e860d571518d2648, type: 3}
+  - {fileID: 1369705849268826442, guid: d6fbd906b74be004abf63ea2b2955852, type: 3}
