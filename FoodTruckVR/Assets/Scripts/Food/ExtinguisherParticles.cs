@@ -1,31 +1,43 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class ExtinguisherParticles : MonoBehaviour
 {
     public ParticleSystem Extinguisher;
-    public Rigidbody FireExt;
-    public GameObject collider;
+    public Collider particleCollider;
+    public OVRGrabbable GrabComp;
+
+    private bool _EffectPlaying = false;
+
     // Start is called before the first frame update
     void Start()
     {
         Extinguisher.Stop(true);
-        collider.SetActive(false);
-
+        particleCollider.enabled = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (FireExt.GetComponent<OVRGrabbable>().isGrabbed) {
+        if(_EffectPlaying == false && GrabComp.isGrabbed == true)
+        {
             Extinguisher.Play(true);
-            collider.SetActive(true);
+            particleCollider.enabled = true;
+            _EffectPlaying = true;
+        }
+        else if(_EffectPlaying == true && GrabComp.isGrabbed == false)
+        {
+            Extinguisher.Stop();
+            particleCollider.enabled = false;
+            _EffectPlaying = false;
         }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        other.GetComponent<MeshCollider>().GetComponentInChildren<ParticleSystem>().Stop(true);
+        if(other.tag == "Fire")
+        {
+            //the ? mark offers a null check
+            other.GetComponent<ParticleSystem>()?.Stop();
+        }
     }
 }
