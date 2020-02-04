@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Fire : MonoBehaviour
+public class FireManager : MonoBehaviour
 {
 
     public List<ParticleSystem> burnables;
@@ -23,7 +23,7 @@ public class Fire : MonoBehaviour
         time -= Time.deltaTime;
         if (time < 0)
         {
-            ParticleSystem thingOnFire = burnables[Random.Range(0, 4)];
+            ParticleSystem thingOnFire = burnables[Random.Range(0, burnables.Count)];
             thingOnFire.Play(true);
             time = Random.Range(15, 35);
         }
