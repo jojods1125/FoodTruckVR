@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4585498694713357279}
   - component: {fileID: 7826833595714228006}
   m_Layer: 0
-  m_Name: FT_Taco_Shell_Box
+  m_Name: ShellBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -57,9 +57,9 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -876546973899608171, guid: fb86d9a3f2a2a3b46b79901e501596e9, type: 3}
-  - {fileID: 1110233775959259594, guid: fb86d9a3f2a2a3b46b79901e501596e9, type: 3}
-  - {fileID: 7993982598810627253, guid: fb86d9a3f2a2a3b46b79901e501596e9, type: 3}
+  - {fileID: 2100000, guid: 087f44024ea994b5888ec8b6c9def4d6, type: 2}
+  - {fileID: 2100000, guid: 087f44024ea994b5888ec8b6c9def4d6, type: 2}
+  - {fileID: 2100000, guid: 3bcf2d9fdd710400c8369e495ba0008f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

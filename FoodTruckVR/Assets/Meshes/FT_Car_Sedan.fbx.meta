@@ -1,13 +1,24 @@
 fileFormatVersion: 2
-<<<<<<< HEAD
 guid: 5a4c8dbcec9a2e540937f4ff6c16028e
-=======
-guid: de27e206b71dca94db4d27ecd575326d
->>>>>>> levels
 ModelImporter:
   serializedVersion: 26
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.001
+    second: {fileID: 2100000, guid: f5bd02449a8f980438721c538ea67dcd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.002
+    second: {fileID: 2100000, guid: 70c19fa50551cee4fbd8ab1aaac82efb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.003
+    second: {fileID: 2100000, guid: b284c37e0df0aa842a4939a535cf16a6, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
@@ -91,7 +102,7 @@ ModelImporter:
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 0
+  animationType: 2
   humanoidOversampling: 1
   additionalBone: 0
   userData: 
