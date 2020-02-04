@@ -25,10 +25,7 @@ public class FoodContainer : Ingredient
 
 	private void Update()
 	{
-		if (gameObject.GetComponent<OVRGrabbable>().isGrabbed && cont == FoodContainerType.Taco)
-		{
-			gameObject.transform.localScale = new Vector3(25, 25, 25);
-		}
+
 	}
 
 	/** Add a ingredient mesh to this container */

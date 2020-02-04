@@ -37,7 +37,7 @@ public class Slosh : MonoBehaviour
         if (this.timeLeft < 0)
         {
             randomForce(centerObject.position, radius);
-            this.timeLeft = Random.Range(0, 15);
+            this.timeLeft = Random.Range(15, 30);
             Debug.Log("Whoopsie Doodles");
         }
 

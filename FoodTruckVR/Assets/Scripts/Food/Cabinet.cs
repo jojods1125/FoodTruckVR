@@ -63,7 +63,7 @@ public class Cabinet : MonoBehaviour
         {
             GameObject shell = refillContainer.GetIngredientModelByType(IngredientType.Shell);
             shell.transform.position = sheSpawn.transform.position;
-            shell.transform.localScale = new Vector3(40,40,40);
+            //shell.transform.localScale = new Vector3(40,40,40);
             //tempRefillInst = Instantiate(RefillTempPref);
             //tempRefillInst.IngredientType = IngredientType.Shell;
             //tempRefillInst.transform.position = sheSpawn.transform.position;
