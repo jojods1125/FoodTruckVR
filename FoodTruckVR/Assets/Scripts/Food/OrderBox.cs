@@ -35,13 +35,37 @@ public class OrderBox : MonoBehaviour
 
     public MeshRenderer meshrender;
 
+
+    //The following was added by Drumstick to have a new car color for each order
+    public Customer currentCustomer;
+    //
+    // The following was added by Drumstick to have a timed element to orders
+    public Material[] patienceLevels_mats= new Material[3];
+    public float patienceTime = 60;
+    private float patienceTime_og = 60;
+    //
+
+
     private void Start()
     {
         NewOrder();
     }
 
+
     public void NewOrder()
     {
+        //The following was added by Drumstick to have a new car color for each order
+        currentCustomer.newCustomerPaint();
+        //
+
+        // The following was added by Drumstick to have a timed element to orders
+        patienceTime = patienceTime_og;
+
+        Material[] uiMaterials = meshrender.materials;
+
+        uiMaterials[0] = patienceLevels_mats[0];
+        meshrender.materials = uiMaterials;
+        //
 
         //Mat reset
         resetTacoMats();
@@ -228,5 +252,28 @@ public class OrderBox : MonoBehaviour
         {
             NewOrder();
         }
+
+        // The following was added by Drumstick to have a timed element to orders
+
+        patienceTime -= Time.deltaTime;
+        if (patienceTime < patienceTime_og * 0.5) // threshold is half of patience time
+        {
+            Material[] uiMaterials = meshrender.materials;
+
+            uiMaterials[0] = patienceLevels_mats[1];
+            meshrender.materials = uiMaterials;
+        }
+        if (patienceTime < patienceTime_og * 0.25) // threshold is quarter of patience time
+        {
+            Material[] uiMaterials = meshrender.materials;
+
+            uiMaterials[0] = patienceLevels_mats[2];
+            meshrender.materials = uiMaterials;
+        }
+        if (patienceTime < 0)
+        {
+            NewOrder();
+        }
+        //
     }
 }

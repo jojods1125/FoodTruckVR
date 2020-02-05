@@ -7,6 +7,23 @@ public class Customer : MonoBehaviour
     public OrderBox currentOrder;
     private bool OrderCorrect = false;
 
+    //The following was added by Drumstick to have a new car color for each order
+    System.Random sysRNG = new System.Random();
+
+    public MeshRenderer meshrender;
+
+    public Material[] paintMats = new Material[10];
+
+    public void newCustomerPaint()
+    {
+        Material[] carMaterials = meshrender.materials;
+
+        carMaterials[1] = paintMats[sysRNG.Next(0, paintMats.Length)];
+        meshrender.materials = carMaterials;
+    }
+    //
+
+
     void OnCollisionEnter(Collision orderCollide)
     {
         
