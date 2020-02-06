@@ -7,6 +7,8 @@ TagManager:
   - Refill
   - Taco
   - ChipBowl
+  - Fire
+  - Deletable
   layers:
   - Default
   - TransparentFX
