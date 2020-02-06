@@ -76,6 +76,8 @@ public class Customer : MonoBehaviour
                 currentOrder.tacoSlot4 = IngredientType.None;
 
                 currentOrder.resetTacoMats();
+
+                currentOrder.resetPatience();
             }
             else
             {
@@ -121,6 +123,8 @@ public class Customer : MonoBehaviour
                 currentOrder.chipSlot = "None";
 
                 currentOrder.resetChipMats();
+
+                currentOrder.resetPatience();
             }
             else
             {
@@ -129,9 +133,7 @@ public class Customer : MonoBehaviour
 
 
         }
-
-
-
+        
 
         /*CHECK FOR COMPLETE ORDER*/
         if (!currentOrder.tacoOrder && !currentOrder.chipOrder)

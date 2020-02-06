@@ -40,7 +40,7 @@ public class OrderBox : MonoBehaviour
     public Customer currentCustomer;
     //
     // The following was added by Drumstick to have a timed element to orders
-    public Material[] patienceLevels_mats= new Material[3];
+    public Material[] patienceLevels_mats = new Material[3];
     public float patienceTime = 60;
     private float patienceTime_og = 60;
     //
@@ -51,6 +51,16 @@ public class OrderBox : MonoBehaviour
         NewOrder();
     }
 
+    // The following was added by Drumstick to have a timed element to orders
+    public void resetPatience()
+    {
+        patienceTime = patienceTime_og;
+
+        Material[] uiMaterials = meshrender.materials;
+
+        uiMaterials[0] = patienceLevels_mats[0];
+        meshrender.materials = uiMaterials;
+    }
 
     public void NewOrder()
     {
@@ -59,12 +69,7 @@ public class OrderBox : MonoBehaviour
         //
 
         // The following was added by Drumstick to have a timed element to orders
-        patienceTime = patienceTime_og;
-
-        Material[] uiMaterials = meshrender.materials;
-
-        uiMaterials[0] = patienceLevels_mats[0];
-        meshrender.materials = uiMaterials;
+        resetPatience();
         //
 
         //Mat reset
