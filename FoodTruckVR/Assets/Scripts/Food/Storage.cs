@@ -14,6 +14,15 @@ public class Storage : MonoBehaviour
 
     public Refill RefillTempPref;
 
+    public float refillCooldown = 3;
+    private float refillCooldown_og = 3;
+
+    private void Start()
+    {
+        refillCooldown_og = refillCooldown;
+        refillCooldown = 0;
+    }
+
     void OnTriggerEnter(Collider refillCollide)
     {
 
@@ -86,9 +95,15 @@ public class Storage : MonoBehaviour
 
     private void Update()
     {
+        refillCooldown -= Time.deltaTime;
+        if (refillCooldown < 0)
+        {
+            StorageFill();
+            refillCooldown = refillCooldown_og;
+        }
        // if (Input.GetKeyDown("space"))
         //{
-            StorageFill();
+        //    StorageFill();
         //}
     }
 }

@@ -14,7 +14,7 @@ public class Scroller : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        level.AddForce(-speed, 0, 0);
+        level.AddForce(speed, 0, 0);
         time_og = time;
         originalPos = level.transform.position;
     }
