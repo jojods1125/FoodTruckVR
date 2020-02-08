@@ -13,21 +13,33 @@ public class script_awning : MonoBehaviour
         m_Animator = GetComponent<Animator>();
     }
 
+    public void openAwning()
+    {
+        m_Animator.Play("Opening");
+    }
+    public void closeAwning()
+    {
+        m_Animator.Play("Closing");
+    }
+    public void breakAwning()
+    {
+        m_Animator.Play("Closing_Broken");
+    }
     // Update is called once per frame
     private void Update()
     {
         //Press the space key to play the "Jump" state
         if (Input.GetKey(KeyCode.G))
         {
-            m_Animator.Play("Opening");
+            openAwning();
         }
         if (Input.GetKey(KeyCode.T))
         {
-            m_Animator.Play("Closing");
+            closeAwning();
         }
         if (Input.GetKey(KeyCode.Y))
         {
-            m_Animator.Play("Closing_Broken");
+            breakAwning();
         }
     }
 }
