@@ -27,7 +27,7 @@ public class Slosh : MonoBehaviour
         timeLeftBIG = initialBigSloshDelay;
         timeLeftLITTLE = littleSlosh_maxTime;
 
-        this.enabled = false;
+        //this.enabled = false;
     }
 
 

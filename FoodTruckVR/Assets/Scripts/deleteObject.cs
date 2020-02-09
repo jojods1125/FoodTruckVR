@@ -12,8 +12,8 @@ public class deleteObject : MonoBehaviour
 
     private GameObject toDelete;
 
-    // Update is called once per frame
-    void LateUpdate()
+    // Fixed update is for physics updates regardless of framerate, should fix things skipping the trigger
+    void FixedUpdate()
     {
         if (toDelete != null)
         {
@@ -21,7 +21,7 @@ public class deleteObject : MonoBehaviour
         }
     }
 
-    void OnTriggerEnter(Collider objectCollide)
+    void OnTriggerStay(Collider objectCollide) //OnTriggerStay is more robust than plainly using OnTriggerEnter
     {
         //ideally use a public array that can be modified on the prefab
         if (objectCollide.CompareTag("Taco") || objectCollide.CompareTag("ChipBowl") || objectCollide.CompareTag("Refill") || objectCollide.CompareTag("Deletable"))

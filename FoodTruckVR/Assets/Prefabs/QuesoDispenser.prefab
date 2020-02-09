@@ -150,8 +150,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   handle: {fileID: 1546298194806130565}
-  spfpfpfpf: {fileID: 4871142638502156840, guid: f77c0e2b954687d42bd1b5e3497caef0,
+  ingredientToDispense: {fileID: 4871142638502156840, guid: f77c0e2b954687d42bd1b5e3497caef0,
     type: 3}
+  dispenseTime: 0.5
+  handleAngles: 0
 --- !u!1 &8527973715235062313
 GameObject:
   m_ObjectHideFlags: 0
