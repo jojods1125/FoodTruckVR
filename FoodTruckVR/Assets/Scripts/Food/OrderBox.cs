@@ -43,11 +43,14 @@ public class OrderBox : MonoBehaviour
     public Material[] patienceLevels_mats = new Material[3];
     public float patienceTime = 60;
     private float patienceTime_og = 60;
+    private int currentPatienceLvl = 0;
     //
 
 
     private void Start()
     {
+        patienceTime_og = patienceTime;
+
         NewOrder();
     }
 
@@ -56,10 +59,14 @@ public class OrderBox : MonoBehaviour
     {
         patienceTime = patienceTime_og;
 
+        currentPatienceLvl = 0;
+
         Material[] uiMaterials = meshrender.materials;
 
         uiMaterials[0] = patienceLevels_mats[0];
         meshrender.materials = uiMaterials;
+
+        this.GetComponent<LerpScaling>().pulseSize_once(1.2f);
     }
 
     public void NewOrder()
@@ -70,6 +77,10 @@ public class OrderBox : MonoBehaviour
 
         // The following was added by Drumstick to have a timed element to orders
         resetPatience();
+        //
+
+        //Shrink and grow animation
+        this.GetComponent<LerpScaling>().pulseSize_once(0);
         //
 
         //Mat reset
@@ -261,21 +272,36 @@ public class OrderBox : MonoBehaviour
         // The following was added by Drumstick to have a timed element to orders
 
         patienceTime -= Time.deltaTime;
-        if (patienceTime < patienceTime_og * 0.5) // threshold is half of patience time
+        if (patienceTime <= patienceTime_og * 0.5 && currentPatienceLvl == 0) // threshold is half of patience time (YELLOW)
         {
             Material[] uiMaterials = meshrender.materials;
 
-            uiMaterials[0] = patienceLevels_mats[1];
+            uiMaterials[0] = patienceLevels_mats[1]; //YELLOW
             meshrender.materials = uiMaterials;
+
+            this.GetComponent<LerpScaling>().pulseSize_once(1.2f); //PULSE
+
+            currentPatienceLvl = 1;
         }
-        if (patienceTime < patienceTime_og * 0.25) // threshold is quarter of patience time
+        if (patienceTime <= patienceTime_og * 0.25 && currentPatienceLvl == 1) // threshold is quarter of patience time (RED)
         {
             Material[] uiMaterials = meshrender.materials;
 
-            uiMaterials[0] = patienceLevels_mats[2];
+            uiMaterials[0] = patienceLevels_mats[2]; //RED
             meshrender.materials = uiMaterials;
+
+            this.GetComponent<LerpScaling>().pulseSize_once(1.2f); //PULSE
+
+            currentPatienceLvl = 2;
         }
-        if (patienceTime < 0)
+        if (patienceTime <= patienceTime_og * 0.10 && currentPatienceLvl == 2) // threshold is 10% of patience time (FLASHING)
+        {
+
+            this.GetComponent<LerpScaling>().pulseSize_continous(1.1f); //FLASHING
+
+            currentPatienceLvl = 3;
+        }
+        if (patienceTime < 0 && currentPatienceLvl == 3)
         {
             NewOrder();
         }

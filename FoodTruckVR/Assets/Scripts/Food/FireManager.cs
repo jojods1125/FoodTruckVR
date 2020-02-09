@@ -13,10 +13,12 @@ public class FireManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        for (int i = 0; i < burnables.Count; i++) {
-            ParticleSystem p = burnables[i];
-            p.Stop();
-        }
+        //this loop is no longer needed since it was an issue with the particles starting awake
+
+        //for (int i = 0; i < burnables.Count; i++) {
+        //    ParticleSystem p = burnables[i];
+        //    p.Stop();
+        //}
 
         timeLeft = initialTime;
 

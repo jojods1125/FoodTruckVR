@@ -46,6 +46,7 @@ public class script_awning : MonoBehaviour
         //handleAngles = handle.transform.rotation.eulerAngles.x;
 
         //hardcoding angles cause idk a better way
+        //the animator state check thing prevents the animation from jumping while it is playing
         if (handle.transform.rotation.eulerAngles.x > 270 && handle.transform.rotation.eulerAngles.x < 290 && !open && m_Animator.GetCurrentAnimatorStateInfo(0).IsName("CLOSED"))
         {
             openAwning();
