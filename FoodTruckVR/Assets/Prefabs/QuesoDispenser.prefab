@@ -24,7 +24,10 @@ GameObject:
   - component: {fileID: 6397557684229111283}
   - component: {fileID: 4578480865889891678}
   - component: {fileID: 5891933112374161205}
-  - component: {fileID: 3536067906119346601}
+  - component: {fileID: 5840525454207384804}
+  - component: {fileID: 5218260934371515575}
+  - component: {fileID: 1581399833172322727}
+  - component: {fileID: 300622598760881783}
   m_Layer: 0
   m_Name: queso_dispensor
   m_TagString: Untagged
@@ -92,8 +95,8 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!64 &3536067906119346601
-MeshCollider:
+--- !u!65 &5840525454207384804
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -102,10 +105,48 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
-  m_Mesh: {fileID: -605296748504380712, guid: 4367d3084cdc4064b88e4fb3eced653c, type: 3}
+  serializedVersion: 2
+  m_Size: {x: 0.002520501, y: 0.0033807957, z: 0.0029482697}
+  m_Center: {x: 0, y: -0.0016903994, z: 0.0033414098}
+--- !u!65 &5218260934371515575
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6301238216244873212}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.0025205007, y: 0.003357737, z: 0.00018991272}
+  m_Center: {x: 0, y: -0.0016788688, z: 0.00009495814}
+--- !u!65 &1581399833172322727
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6301238216244873212}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.002520501, y: 0.00211631, z: 0.0021229023}
+  m_Center: {x: 0, y: -0.0010581553, z: 0.0010614522}
+--- !u!65 &300622598760881783
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6301238216244873212}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.0022233536, y: 0.00017328771, z: 0.0012890949}
+  m_Center: {x: 0, y: -0.0034339293, z: 0.0038796074}
 --- !u!1 &6800579509933609571
 GameObject:
   m_ObjectHideFlags: 0
@@ -153,7 +194,6 @@ MonoBehaviour:
   ingredientToDispense: {fileID: 4871142638502156840, guid: f77c0e2b954687d42bd1b5e3497caef0,
     type: 3}
   dispenseTime: 0.5
-  handleAngles: 0
 --- !u!1 &8527973715235062313
 GameObject:
   m_ObjectHideFlags: 0
