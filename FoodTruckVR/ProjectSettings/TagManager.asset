@@ -9,6 +9,7 @@ TagManager:
   - ChipBowl
   - Fire
   - Deletable
+  - Cash
   layers:
   - Default
   - TransparentFX
