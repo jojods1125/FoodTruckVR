@@ -24,7 +24,7 @@ public class cashRegisterScript : MonoBehaviour
     }
     void OnCollisionEnter(Collision other)
     {
-        if (other.gameObject.CompareTag("Cash") && other.gameObject.GetComponent<OVRGrabbable>().isGrabbed) //tags are case sensetive and do nothing unless it's being grabbed.
+        if (other.gameObject.CompareTag("Cash")) // && other.gameObject.GetComponent<OVRGrabbable>().isGrabbed) //tags are case sensetive and do nothing unless it's being grabbed.
         {
             currentRegisterValue += other.gameObject.GetComponent<cashValueScript>().cashValue; //add cash value of cash to register value
 
