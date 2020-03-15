@@ -10,6 +10,7 @@ TagManager:
   - Fire
   - Deletable
   - Cash
+  - MeatProof
   layers:
   - Default
   - TransparentFX

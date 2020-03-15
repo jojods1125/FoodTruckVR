@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 1882561470}
-  m_IndirectSpecularColor: {r: 0.3517761, g: 0.57806706, b: 0.76798236, a: 1}
+  m_IndirectSpecularColor: {r: 0.35239303, g: 0.5784324, b: 0.76843244, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -9065,6 +9065,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: BeefBox (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 2042900541335534231, guid: 53819c1a6ca38e24fba51221cd5c9d33,
+        type: 3}
+      propertyPath: m_TagString
+      value: MeatProof
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 53819c1a6ca38e24fba51221cd5c9d33, type: 3}
 --- !u!1001 &2067863067
@@ -10787,6 +10792,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: BeefBox
+      objectReference: {fileID: 0}
+    - target: {fileID: 2042900541335534231, guid: 53819c1a6ca38e24fba51221cd5c9d33,
+        type: 3}
+      propertyPath: m_TagString
+      value: MeatProof
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 53819c1a6ca38e24fba51221cd5c9d33, type: 3}
@@ -14160,8 +14170,7 @@ MonoBehaviour:
   m_snapPosition: 0
   m_snapOrientation: 0
   m_snapOffset: {fileID: 0}
-  m_grabPoints:
-  - {fileID: 6841592355776131984}
+  m_grabPoints: []
 --- !u!1 &9130382181483774471
 GameObject:
   m_ObjectHideFlags: 0
