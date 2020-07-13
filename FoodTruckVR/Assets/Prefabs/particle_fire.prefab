@@ -50,7 +50,7 @@ ParticleSystem:
   ringBufferLoopRange: {x: 0, y: 1}
   looping: 1
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   useRigidbodyForVelocity: 1
@@ -4789,6 +4789,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: particle_smoke
+      objectReference: {fileID: 0}
+    - target: {fileID: 5397701700701601238, guid: cc474ae7df8f7df41a427cbe53db37c4,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5989891325155721295, guid: cc474ae7df8f7df41a427cbe53db37c4,
         type: 3}

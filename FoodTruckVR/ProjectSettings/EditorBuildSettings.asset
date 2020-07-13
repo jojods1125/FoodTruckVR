@@ -6,6 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/CustomHands 1.unity
-    guid: e2f78f5adf2a1654b8d001b9c760101f
+    path: Assets/Scenes/MasterScene.unity
+    guid: e5cf7bcd92794b7478fa36242290f28c
   m_configObjects: {}

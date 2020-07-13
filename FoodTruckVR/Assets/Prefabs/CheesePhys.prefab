@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 8647420689703172504}
   m_Layer: 0
   m_Name: CheesePhys
-  m_TagString: Untagged
+  m_TagString: Deletable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

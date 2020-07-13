@@ -7,6 +7,10 @@ TagManager:
   - Refill
   - Taco
   - ChipBowl
+  - Fire
+  - Deletable
+  - Cash
+  - MeatProof
   layers:
   - Default
   - TransparentFX
