@@ -7,6 +7,29 @@ public class Customer : MonoBehaviour
     public OrderBox currentOrder;
     private bool OrderCorrect = false;
 
+    public GameObject cashSpawner1;
+    public GameObject cashSpawner2;
+
+    //The following was added by Drumstick to have a new car color for each order
+    System.Random sysRNG = new System.Random();
+
+    public MeshRenderer meshrender;
+
+    public Material[] paintMats = new Material[10];
+
+    private bool payForTaco = false;
+    private bool payForChips = false;
+
+    public void newCustomerPaint()
+    {
+        Material[] carMaterials = meshrender.materials;
+
+        carMaterials[1] = paintMats[sysRNG.Next(0, paintMats.Length)];
+        meshrender.materials = carMaterials;
+    }
+    //
+
+
     void OnCollisionEnter(Collision orderCollide)
     {
         
@@ -59,6 +82,10 @@ public class Customer : MonoBehaviour
                 currentOrder.tacoSlot4 = IngredientType.None;
 
                 currentOrder.resetTacoMats();
+
+                currentOrder.resetPatience();
+
+                payForTaco = true;
             }
             else
             {
@@ -104,6 +131,10 @@ public class Customer : MonoBehaviour
                 currentOrder.chipSlot = "None";
 
                 currentOrder.resetChipMats();
+
+                currentOrder.resetPatience();
+
+                payForChips = true;
             }
             else
             {
@@ -112,14 +143,27 @@ public class Customer : MonoBehaviour
 
 
         }
-
-
-
+        
 
         /*CHECK FOR COMPLETE ORDER*/
         if (!currentOrder.tacoOrder && !currentOrder.chipOrder)
         {
             currentOrder.NewOrder();
-        }
+
+            //only pay after both items are completed
+            if (payForTaco)
+            {
+                cashSpawner1.GetComponent<itemSpawner>().spawnItem(); //force spawn a cash valued $5
+            }
+
+            if (payForChips)
+            {
+                cashSpawner2.GetComponent<itemSpawner>().spawnItem(); //force spawn a cash valued $2
+            }
+
+            //reset these variables
+            payForTaco = false;
+            payForChips = false;
+}
     }
 }

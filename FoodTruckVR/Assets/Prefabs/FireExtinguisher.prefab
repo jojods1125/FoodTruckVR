@@ -1,34 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!136 &5761476500684847795
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3491055205348460964}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  m_Radius: 0.0022
-  m_Height: 0.011
-  m_Direction: 2
-  m_Center: {x: 0, y: 0, z: 0.0085}
---- !u!114 &4065723772380913314
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3491055205348460964}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bceb824036ae7344ab8bcba7ee5b17a5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Extinguisher: {fileID: 7251128072177547232}
-  particleCollider: {fileID: 5761476500684847795}
-  GrabComp: {fileID: 5277763337280015116}
 --- !u!54 &8470600189435471040
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -45,6 +16,35 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!136 &5761476500684847795
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3491055205348460964}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.0022
+  m_Height: 0.015
+  m_Direction: 2
+  m_Center: {x: 0, y: 0, z: 0.0075}
+--- !u!114 &4065723772380913314
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3491055205348460964}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bceb824036ae7344ab8bcba7ee5b17a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Extinguisher: {fileID: 7251128072177547232}
+  particleCollider: {fileID: 5761476500684847795}
+  GrabComp: {fileID: 5277763337280015116}
 --- !u!1 &8364309105866322815
 GameObject:
   m_ObjectHideFlags: 0
@@ -174,7 +174,7 @@ CapsuleCollider:
   m_Radius: 0.00094
   m_Height: 0.007
   m_Direction: 2
-  m_Center: {x: 0.0002, y: 0, z: -0.0023}
+  m_Center: {x: 0.0004, y: 0, z: -0.0023}
 --- !u!1001 &4390965214268044486
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -190,7 +190,7 @@ PrefabInstance:
     - target: {fileID: 4721701488748183231, guid: 917a03bd40e1a8c45b58568ce7341269,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 0.00214
       objectReference: {fileID: 0}
     - target: {fileID: 4721701488748183231, guid: 917a03bd40e1a8c45b58568ce7341269,
         type: 3}

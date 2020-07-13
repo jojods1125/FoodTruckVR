@@ -6,9 +6,13 @@ public class QuesoDispenser : MonoBehaviour
 {
     public GameObject handle;
 
-    public Ingredient spfpfpfpf;
+    public Ingredient ingredientToDispense;
 
     private float lastTime = 0;
+
+    public float dispenseTime = 0.5f;
+    
+    //public float handleAngles = 0f;
 
     // Start is called before the first frame update
     void Start()
@@ -19,9 +23,11 @@ public class QuesoDispenser : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (handle.transform.rotation.eulerAngles.x > 320 && Time.time - lastTime > 0.7)
+        //handleAngles = handle.transform.rotation.eulerAngles.x;
+
+        if (handle.transform.rotation.eulerAngles.x > 0 && handle.transform.rotation.eulerAngles.x < 90 && Time.time - lastTime > dispenseTime)
         {
-            Instantiate(spfpfpfpf, gameObject.transform.position, new Quaternion(0, 0, 0, 0));
+            Instantiate(ingredientToDispense, gameObject.transform.position, new Quaternion(0, 0, 0, 0));
             lastTime = Time.time;
         }
     }

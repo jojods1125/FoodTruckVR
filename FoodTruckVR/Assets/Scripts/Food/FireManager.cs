@@ -6,26 +6,33 @@ public class FireManager : MonoBehaviour
 {
 
     public List<ParticleSystem> burnables;
-    public float time = 30;
+    public float initialTime = 60;
+    public float minTime = 20;
+    public float maxTime = 40;
+    private float timeLeft = 60;
     // Start is called before the first frame update
     void Start()
     {
-        for (int i = 0; i < burnables.Count; i++) {
-            ParticleSystem p = burnables[i];
-            p.Stop();
-        }
+        //this loop is no longer needed since it was an issue with the particles starting awake
+
+        //for (int i = 0; i < burnables.Count; i++) {
+        //    ParticleSystem p = burnables[i];
+        //    p.Stop();
+        //}
+
+        timeLeft = initialTime;
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        time -= Time.deltaTime;
-        if (time < 0)
+        timeLeft -= Time.deltaTime;
+        if (timeLeft < 0)
         {
             ParticleSystem thingOnFire = burnables[Random.Range(0, burnables.Count)];
             thingOnFire.Play(true);
-            time = Random.Range(15, 35);
+            timeLeft = Random.Range(minTime, maxTime);
         }
     }
 

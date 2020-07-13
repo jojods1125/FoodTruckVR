@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 9022107730839644756}
   m_Layer: 0
   m_Name: ChipsPhys
-  m_TagString: Untagged
+  m_TagString: Deletable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -43,7 +43,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3608109810994142988}
-  m_Mesh: {fileID: -7728758834542300919, guid: 0add1eca63a533e41a7566f65ce65559, type: 3}
+  m_Mesh: {fileID: -7728758834542300919, guid: 1c4b1f3ea71c9ab4aa7151631ca676f8, type: 3}
 --- !u!23 &3039440247285509072
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -141,5 +141,5 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.0013187814, y: 0.0017052328, z: 0.0015870896}
-  m_Center: {x: -0.000011794589, y: -0.00017877543, z: -0.00006830452}
+  m_Size: {x: 0.001, y: 0.001, z: 0.001}
+  m_Center: {x: 0.00012408491, y: -0.00024851284, z: -0.00015999819}
