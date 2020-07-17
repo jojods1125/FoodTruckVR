@@ -54,6 +54,11 @@ public class splatDecal_script : MonoBehaviour
 
         if ((info.gameObject.GetComponent<FoodContainer>() == null || info.gameObject.GetComponent<PhysicalIngredient>() == null) && info.gameObject.tag != "MeatProof") //kinda messy like this, but prevents spawning decals on food
         {
+            if (info.gameObject.tag == "Taco")
+            {
+                return;
+            }
+
             if (!alreadyHit && info.collider.Raycast(new Ray(point, dir), out hitInfo, 2))
             {
                 // this is the collider surface normal

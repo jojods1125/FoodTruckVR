@@ -14131,7 +14131,6 @@ GameObject:
   - component: {fileID: 1796633522099678197}
   - component: {fileID: 6610676664413513437}
   - component: {fileID: 9040457958890134048}
-  - component: {fileID: 9040457958890134049}
   m_Layer: 0
   m_Name: fridge_door
   m_TagString: Untagged
@@ -14153,24 +14152,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 14
   m_Mesh: {fileID: -7768166326407964731, guid: dfa599685de1c2e489fc49730b1bc76a, type: 3}
---- !u!114 &9040457958890134049
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9040457958890134047}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 02d61468f8b77ae4b92c344bc9a600fb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  GrabbableType: 1
-  m_allowOffhandGrab: 1
-  m_snapPosition: 0
-  m_snapOrientation: 0
-  m_snapOffset: {fileID: 0}
-  m_grabPoints: []
 --- !u!1 &9130382181483774471
 GameObject:
   m_ObjectHideFlags: 0
